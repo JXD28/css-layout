@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>创建列</title>
+    <title>创建列-flex</title>
     <style>
       * {
         margin: 0;
@@ -18,29 +18,13 @@
         margin: auto;
       }
       .col {
-        float: left;
-        box-sizing: border-box;
         min-height: 100px;
         outline: 1px solid #666;
-        padding: 0 0.6875em 1.375em;
         word-wrap: break-word;
       }
-      /* .col {
-        float: left;
+      .row {
+        display: flex;
         box-sizing: border-box;
-        min-height: 100px;
-        outline: 1px solid #666;
-        /* 布局会乱,因为加上了外边距,所有列的总宽度超过了100% */
-      /* margin: 0 0.9% 1.375em; */
-      /* } */
-      /* .row {
-        margin: 0 -0.9%;
-      } */
-      .row:after {
-        content: "";
-        display: block;
-        clear: both;
-        /* height: 0; */
       }
       .row-quartet > * {
         width: 25%;
@@ -57,25 +41,12 @@
       .subcategory-featured {
         width: 50%;
       }
-      /* 清除锯齿效果 */
-      .row-wrapping {
-        font-size: 0;
-        margin: 0 -11px;
-        margin: 0 -0.6875rem;
-      }
-      .row-wrapping > * {
-        float: none;
-        vertical-align: top;
-        display: inline-block;
-        font-size: 16px;
-        font-size: 1rem;
-      }
     </style>
   </head>
   <body>
     <section>
       <header class="demo-header">
-        <h1 class="header-h1">css 布局-创建列-float</h1>
+        <h1 class="header-h1">css 布局-创建列-flex</h1>
       </header>
     </section>
     <section class="subcategory">
@@ -84,18 +55,14 @@
           <h2>Sub-section 1</h2>
         </header>
         <div class="col subcategory-content">
-          <div class="row row-quartet row-wrapping">
+          <div class="row row-quartet">
             <div class="col subcategory-featured">
-              111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+              11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111等高
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col">等高</div>
+            <div class="col">等高</div>
           </div>
-          <div class="row row-quartet row-wrapping">
-            <div class="col">
-              111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-            </div>
-            <div class="col"></div>
+          <div class="row row-quartet">
             <div class="col"></div>
             <div class="col"></div>
             <div class="col"></div>
