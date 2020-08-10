@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>创建列</title>
+    <script src="modernizr.js"></script>
     <style>
       * {
         margin: 0;
@@ -17,13 +18,17 @@
       .header-h1 {
         margin: auto;
       }
-      .col {
+      .flexbox .col {
+        flex-direction: column;
         float: left;
         box-sizing: border-box;
         min-height: 100px;
-        outline: 1px solid #666;
+        /* border: 1px solid #666; */
         padding: 0 0.6875em 1.375em;
         word-wrap: break-word;
+      }
+      .flexbox .col > * {
+        flex: 1;
       }
       /* .col {
         float: left;
@@ -57,7 +62,7 @@
       .subcategory-featured {
         width: 50%;
       }
-      /* 清除锯齿效果 */
+      /* 清除锯齿效果,包装 */
       .row-wrapping {
         font-size: 0;
         margin: 0 -11px;
@@ -69,6 +74,23 @@
         display: inline-block;
         font-size: 16px;
         font-size: 1rem;
+      }
+      /* 等高 */
+      .flexbox .row {
+        display: flex;
+      }
+      .flexwrap .ro-wrapping {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .story {
+        min-height: 100px;
+        padding: 0.6875em;
+        background-color: #eee;
+      }
+      /* 不加宽度会是图片原始宽度 */
+      .story img {
+        width: 100%;
       }
     </style>
   </head>
@@ -86,20 +108,35 @@
         <div class="col subcategory-content">
           <div class="row row-quartet row-wrapping">
             <div class="col subcategory-featured">
-              111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+                <div>flex:1 不生效,不能设置等高</div>
+              </article>
+            </div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
           </div>
           <div class="row row-quartet row-wrapping">
             <div class="col">
-              111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+              <article class="story"></article>
             </div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
           </div>
         </div>
       </div>
@@ -110,10 +147,22 @@
           <h2>Sub-section 1</h2>
         </header>
         <div class="col subcategory-content">
-          <div class="row row-trio">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+          <div class="row row-trio row-wrapping">
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
           </div>
         </div>
       </div>
