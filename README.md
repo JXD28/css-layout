@@ -92,5 +92,35 @@
         clear: both;
       }
     ```
-- 网格布局
+- 网格布局(二维布局:可以跨行)
   ![](img/%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80.png)
+
+用于表示列宽的单位:fr(fraction of available space)
+
+repeat函数:repeat(5,1fr) -> 1fr 1fr 1fr 1fr 1fr
+
+
+```css
+/* 2行4列,行高300培训,4列等 */
+.wrapper{
+  display : grid;
+  grid-template-rows: 300px 300px;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  /* grid-template-columns:repeat(4,1fr); */
+}
+```
+
+由于网格轨道在DOM中并没有特定的元素表示,所以不能通过max-width或者min-width之类的属性来为它们指定大小,使用minmax()函数->minmax(4em,1fr)
+
+```css
+/* 简写:前边士行的定义,后边是列的定义,用'/'隔开 */
+.wrapper{
+  display : grid;
+  grid-template: auto minmax(4em,1fr) minmax(4em,1fr)/repeat(5,1fr);
+}
+```
+----
+# 响应式布局
+
+只创建一个能适配多种设备的网站:响应式网站
+
