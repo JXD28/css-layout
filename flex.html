@@ -19,8 +19,15 @@
       }
       .col {
         min-height: 100px;
-        outline: 1px solid #666;
+        /* outline: 1px solid #666; */
         word-wrap: break-word;
+        padding: 0 0.6875em 1.375em;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+      .col > * {
+        flex: 1;
       }
       .row {
         display: flex;
@@ -41,6 +48,15 @@
       .subcategory-featured {
         width: 50%;
       }
+      .story {
+        min-height: 100px;
+        padding: 0.6875em;
+        background-color: #eee;
+      }
+      /* 不加宽度会是图片原始宽度 */
+      .story img {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -57,16 +73,34 @@
         <div class="col subcategory-content">
           <div class="row row-quartet">
             <div class="col subcategory-featured">
-              11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111等高
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
             </div>
-            <div class="col">等高</div>
-            <div class="col">等高</div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
           </div>
           <div class="row row-quartet">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
+            <div class="col">
+              <article class="story"></article>
+            </div>
           </div>
         </div>
       </div>
@@ -78,9 +112,21 @@
         </header>
         <div class="col subcategory-content">
           <div class="row row-trio">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
+            <div class="col">
+              <article class="story">
+                <img src="./img/paysage.png" alt="景色" />
+              </article>
+            </div>
           </div>
         </div>
       </div>
