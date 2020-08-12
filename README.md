@@ -123,4 +123,43 @@ repeat函数:repeat(5,1fr) -> 1fr 1fr 1fr 1fr 1fr
 # 响应式布局
 
 只创建一个能适配多种设备的网站:响应式网站
+- 匹配视口:
+  ```html
+  <meta name="viewport" content= "width=device-width, initial-scale=1">
+  ```
+  视口宽度基准:device-width 当前设备的理想尺寸
 
+  与理想视口匹配的缩放级别: initial-scale>1 放大布局 
+
+- 媒体查询: 
+  可以在link元素中写也可以在css文件中写
+  
+  在link中:
+  ```html
+  <link rel="stylesheet" href="main.css" media = "screen and (min-width:600px)">
+  ```
+  css文件中:
+  and关键字负责把媒体类型与我们要测试的条件连接起来,因此可以同时测试多个条件
+  only关键字为了防止旧版浏览器错误的应用样式
+  ```css
+  @media only screen and (min-width:600px) and (max-width:1000px){
+
+  }
+  ```
+
+## 响应式布局的设计模式
+- 移动优先:先把考虑各种限制因素再扩展
+- 响应式文本列:`column-width:16em`
+- flex
+- grid Layout + 媒体查询
+- 图片:1.媒体查询+改变图源 2.分辨率查询切换图片
+- 响应式嵌入媒体:
+  - 给图片,视频设置max-width:100% 让元素变得可伸缩,同时又不会超过其固有大小
+  - srcset 和 size 的配合使用:浏览器的预解析器知道该解析哪一个.
+  - 小屏设备加载大的图片时候在放大或者缩小的时候会耗费处理器时间和内存空间
+  - picture元素 webp格式
+- 视口单位:
+  - vh,vw
+  - vmin 宽高较小的那个
+  - vmax
+- 对于em:相对于当前的字体的大小,如果设置了font-size属性,并且单位是em ,那么此时的1em就会在font-size的基础上叠加.
