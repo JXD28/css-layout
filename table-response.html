@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应table</title>
+    <style>
+      .cars {
+        font-size: "Lucida Sans", Verdana, Arial, sans-serif;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .cars caption {
+        text-align: left;
+        font-style: italic;
+        border-bottom: 1px solid #ccc;
+      }
+      .cars tr:nth-child(even) {
+        background-color: #eee;
+      }
+      .cars caption,
+      .cars td,
+      .cars th {
+        text-align: left;
+        padding: 0 0.5em;
+        line-height: 2;
+      }
+      .cars thead {
+        border-bottom: 2px solid;
+      }
+
+      /* 断点 */
+      @media only screen and (max-width: 760px) {
+        .cars {
+          display: block;
+        }
+        .cars thead {
+          display: none;
+        }
+        .cars td,
+        .cars th {
+          display: block;
+          float: left;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .cars th {
+          font-weight: 600;
+          border-bottom: 2px solid;
+          padding-top: 10px;
+        }
+        .cars td::before {
+          width: 40%;
+          display: inline-block;
+          font-style: italic;
+          content: attr(data-label);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table class="cars">
+      <!-- 表格标题 -->
+      <caption>
+        Tesla car models
+      </caption>
+      <thead>
+        <tr>
+          <th class="col">Model</th>
+          <th class="col">Top speed</th>
+          <th class="col">Range</th>
+          <th class="col">Length</th>
+          <th class="col">Width</th>
+          <th class="col">Weight</th>
+          <th class="col">Starting price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Model S</th>
+          <td data-label="Top speed">201 km/h</td>
+          <td data-label="Range">426 km</td>
+          <td data-label="Length">4976 mm</td>
+          <td data-label="Width">1963 mm</td>
+          <td data-label="Weight">2108 kg</td>
+          <td data-label="Starting price">$69900</td>
+        </tr>
+        <tr>
+          <th scope="row">Roadster</th>
+          <td data-label="Top speed">201 km/h</td>
+          <td data-label="Range">426 km</td>
+          <td data-label="Length">4976 mm</td>
+          <td data-label="Width">1963 mm</td>
+          <td data-label="Weight">2108 kg</td>
+          <td data-label="Starting price">$69900</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
