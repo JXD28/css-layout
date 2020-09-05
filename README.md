@@ -167,3 +167,6 @@ repeat函数:repeat(5,1fr) -> 1fr 1fr 1fr 1fr 1fr
 ----
 # 表单与数据表
 
+## 1. label 与 input 
+- checkbox/radio :label的for 要与input的id相同才能有相应的checked等效果
+- radio : input 的name属性要相同,控制单选

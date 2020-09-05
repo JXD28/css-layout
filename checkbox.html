@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>radio</title>
+    <style>
+      .radioes {
+        list-style: none;
+        padding: 0;
+        column-width: 10em;
+      }
+      .radioes li {
+        margin-bottom: 0.5em;
+      }
+      :root input[type="radio"] {
+        position: absolute;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        clip: rect(0 0 0 0);
+      }
+      /* :root input[type=":radio"] */
+      :root input[type="radio"] + label {
+        background: url("./img/unchecked.jpg") 0.125em 50% no-repeat;
+        background-size: contain;
+        padding: 0px 0px 0 25px;
+      }
+      /* :root input[type="radio"]:checked + label {
+        background-image: url("./img/checked.jpg");
+        background-size: contain;
+        padding: 0px 0px 0 25px;
+      } */
+      /* :root input[type="radio"]:focus + label {
+        background: url("./img/checkfocus.jpg") 0.125em 50% no-repeat;
+        background-size: contain;
+        padding: 0px 0px 0 25px;
+      }*/
+      :root input[type="radio"]:checked + label {
+        background-image: url("./img/checked1.jpg");
+        background-size: contain;
+        padding: 0px 0px 0 25px;
+      }
+      :root input[type="radio"]:hover + label {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="radioes">
+      <li>
+        <!-- for 与 id名字要相同 -->
+        <input type="radio" name="lang-as1" id="lang-as1" />
+        <label for="lang-as1">ActionScript</label>
+      </li>
+      <li>
+        <input type="radio" name="lang-as" id="lang-as2" />
+        <label for="lang-as2">ActionScript</label>
+      </li>
+      <li>
+        <input type="radio" name="lang-as" id="lang-as3" />
+        <label for="lang-as3">ActionScript</label>
+      </li>
+      <li>
+        <input type="radio" name="lang-as" id="lang-as4" />
+        <label for="lang-as4">ActionScript</label>
+      </li>
+      <li>
+        <input type="radio" name="lang-as" id="lang-as5" />
+        <label for="lang-as5">ActionScript</label>
+      </li>
+    </ul>
+  </body>
+</html>

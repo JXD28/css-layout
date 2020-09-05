@@ -49,6 +49,7 @@
       }
       .field-text label,
       .field-text input,
+      .field-prefixed,
       .field-text textarea {
         width: 100%;
         box-sizing: border-box;
@@ -69,6 +70,76 @@
         height: 10em;
         resize: vertical;
       }
+      /*单选框  */
+      input[type="radio"] {
+        margin-right: 0.75em;
+      }
+      /* button */
+      button {
+        cursor: pointer;
+        border: 0;
+        padding: 0.5em 1em;
+        color: #fff;
+        border-radius: 0.25em;
+        font-size: 1em;
+        background-color: #173b6d;
+        background-image: linear-gradient(to bottom #1a4a8e, #173b6d);
+        box-shadow: 0 0.25em 0 rgba(23, 59, 109, 0.3),
+          inset 0 1px 0 rgba(0, 0, 0, 0.3);
+      }
+      button:focus {
+        background-color: #2158a9;
+        background-image: linear-gradient(to bottom, #2063c0, #1d4d90);
+      }
+      /*placeholder  */
+      ::-webkit-input-placeholder {
+        font-style: italic;
+      }
+      .form-help {
+        display: block;
+        position: absolute;
+        overflow: hidden;
+        width: 1px;
+        height: 1px;
+        clip: rect(0 0 0 0);
+      }
+      input:focus + .form-help {
+        padding: 0.5em;
+        margin-top: 0.5em;
+        border: 1px solid #2a80fa;
+        border-radius: 0.25em;
+        font-style: italic;
+        color: #737373;
+        background-color: #fff;
+        position: static;
+        width: auto;
+        height: auto;
+        /* crop:none; */
+      }
+      .field-text :invalid {
+        border-color: #e72633;
+        box-shadow: 0 0 0.5em rgba(229, 43, 37, 0.5);
+      }
+      .field-prefix {
+        display: inline-block;
+        border-radius: 0.25em;
+      }
+      .field-prefixed input {
+        max-width: 12em;
+      }
+      .field-prefixed {
+        display: flex;
+      }
+      .field-prefix {
+        border-right: 0;
+        border-radius: 0.25em 0 0 0.25em;
+        display: flex;
+        align-items: center;
+      }
+      .field-prefixed input {
+        max-width: 100%;
+        border-radius: 0 0.25em 0.25em 0;
+      }
     </style>
   </head>
   <body>
@@ -82,7 +153,15 @@
           </p>
           <p class="field field-text">
             <label for="comment-email">Email</label>
-            <input name="comment-email" id="comment-email" type="email" />
+            <input
+              name="comment-email"
+              id="comment-email"
+              type="email"
+              placeholder="http://example.com"
+            />
+            <span id="comment-url-help" role="tooltip" class="form-help"
+              >Fill in your URL if you have one.Make sure to include the</span
+            >
           </p>
           <p class="field field-text">
             <label for="comment-url">Web Address</label>
@@ -96,6 +175,44 @@
               cols="20 "
               rows="10"
             ></textarea>
+          </p>
+          <!-- 单选框的name必须相同 -->
+          <p class="field">
+            <label
+              ><input
+                name="comment-remember"
+                type="radio"
+                values="yes"
+              />Yes</label
+            >
+          </p>
+          <p class="field">
+            <label
+              ><input
+                name="comment-remember"
+                type="radio"
+                values="no"
+              />No</label
+            >
+          </p>
+          <button type="submit">Post comment</button>
+          <p class="field field-text">
+            <label for="applicant-twitter">Twitter handle:</label>
+            <span class="field-prefixed">
+              <span
+                class="field-prefix"
+                id="applicant-twitter-prefix"
+                aria-label="yOU CAN OMIT THE @"
+                >@</span
+              >
+
+              <input
+                aria-describedat="applicant-twitter-prefix"
+                name="applicant-twitter"
+                id="applicant-twitter"
+                type="text"
+              />
+            </span>
           </p>
         </fieldset>
       </div>
