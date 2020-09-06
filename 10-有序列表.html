@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>有序列表</title>
+    <style>
+      .rules {
+        list-style: none;
+        counter-reset: rulecount 2;
+      }
+      .rules li {
+        counter-increment: rulecount;
+        position: relative;
+        width: 10em;
+        transform: skewX(15deg);
+        background-color: cadetblue;
+      }
+      .rules li::before {
+        content: "$" counter(rulecount);
+        position: absolute;
+        transform-origin: 100% 100%;
+        transform: translate(-100%, -100%) rotate(-90deg);
+        background-color: cornflowerblue;
+      }
+      .rules li:nth-child(even) {
+        transform: skewX(-15deg);
+      }
+    </style>
+  </head>
+  <body>
+    <ol class="rules" start="3">
+      <li>dddddd</li>
+      <li>dddddd</li>
+      <li>dddddd</li>
+      <li>dddddd</li>
+      <li>dddddd</li>
+      <li>dddddd</li>
+      <li>dddddd</li>
+    </ol>
+  </body>
+</html>

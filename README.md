@@ -170,3 +170,66 @@ repeat函数:repeat(5,1fr) -> 1fr 1fr 1fr 1fr 1fr
 ## 1. label 与 input 
 - checkbox/radio :label的for 要与input的id相同才能有相应的checked等效果
 - radio : input 的name属性要相同,控制单选
+
+## 2. 有序列表ol
+
+- 属性start:[number] 设置序号从哪个数字开始
+
+## 3.aria-hidden
+- 现代的辅助技术能够识别并朗读由 CSS 生成的内容和特定的 Unicode 字符
+
+
+# 变换 transform 
+- transform 性能好,相应的计算只会影响相关元素的坐标系统,既不会改变元素内部的布局,又不会影响外部其他元素
+- 变换不会影响脚本计算或者布局计算,多数浏览器会尽量安排图形处理器来做这些计算
+
+## 1.  transform-origin 
+- 该属性允许您改变被转换元素的位置。默认 50% 50% 0 ,也就是以中心为基点
+  
+## 2. 修改变换
+- 如果想要添加其他动态效果,如鼠标悬停动画,声明时把之前的平移的动作全加上
+
+# 动画 transition
+  ## 1.transform 和 translate
+- transform的中文翻译是变换、变形，是css3的一个属性，和其他width，height属性一样
+
+- translate 是transform的属性值，是指元素进行2D变换，2D变换就是指，元素以当前位置（0,0）按照x轴的方向移动多少，按照y轴的方向移动多少 
+
+例如：
+
+- transform：translate(0,100%) 表示从元素的当前位置延y轴方向，向下移动整个元素高度的距离
+
+- transform：translate(-20px,0) 表示从元素的当前位置延x轴方向，向左移动20px
+
+- transform 有很多其它属性值，translate3D（3D变换）,scale（2D缩放）等其他的变换方式
+
+ 
+
+## 2. transition :property duration timing-function delay;
+
+- transition  在一定时间之内，一组css属性变换到另一组属性的动画展示过程。可以用来实现动态效果，css3的属性
+
+- 语法 transition：需要变换的属性 变换需要的时间 控制动画速度变化 延期多少时间后开始执行 
+
+- transition属性写在最初的样式里，而不是放在结束的样式里，即定义动画开始之前的元素外观的样式。只需要给元素设置一次transition，浏览器就会负责以动画展示从一个样式到另一个样式。
+  ```css
+   .hello {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #ccc;
+        background: url(images/step-animation.png) no-repeat 0 -1200px;
+        -webkit-transition: background-position 0s 0.3s steps(6, start);
+        transition: background-position 0s 0.3s steps(6, start);
+      }
+      .hello:hover {
+        -webkit-transition-delay: 0;
+        transition-delay: 0;
+        -webkit-transition-duration: 0.6s;
+        transition-duration: 0.6s;
+        background-position: 0 0;  
+      }
+  ```
+- 有的属性只能数值过度:height等
+- 有的属性只接受整数:z-index,columns-count
+## 3. 曲线动画
+![](img/%E6%9B%B2%E7%BA%BF%E5%8A%A8%E7%94%BB.png)
